@@ -19,14 +19,29 @@ span {
 
 a {
   color: #346BD4;
-  font-family: 'Lato', 'sans-serif'
+  font-family: 'Lato', 'sans-serif';
+  font-style: normal;
+  font-weight: 400;
+}
+
+a:hover {
+  cursor: pointer;
+  color: blue;
+}
+
+a:active {
+  color: black;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 .container {
   display: flex;
 }
 
-#heading {
+.heading {
   font-size: 4rem;
   color: #ffffff;
 }
@@ -64,6 +79,10 @@ a {
   background-color: white;
 }
 
+.login-form a {
+  margin: 10px 0px;
+}
+
 .login-buttons {
   display: flex;
   gap: 20px;
@@ -78,6 +97,9 @@ label {
 .login-buttons button {
   text-align: center;
   margin: 1.4rem 0px;
+  font-size: 0.8rem;
+  display: flex;
+  gap: 10px;
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
@@ -85,26 +107,48 @@ label {
   background-color: white;
   border: 0;
   border-radius: 10px;
-  padding: 0.5rem;
+  padding: 0.7rem;
+  transition: all 0.3s;
+}
+
+.login-buttons button:hover {
+  background-color: #EAEAEA;
+  transition: all 0.3s;
+}
+
+.login-buttons button:active {
+  scale: 95%;
+  transition: all 0.3s;
+}
+
+
+
+button>svg {
+  font-size: 1rem;
 }
 
 input {
   background-color: #F5F5F5;
+  outline: none;
+  font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
   padding: 10px;
   border-radius: 10px;
   transition: all 0.3s;
 }
 
-input:hover{
-  background-color: #EAEAEA;
-  box-shadow: 2px 2px 3px white;
+input:hover {
+  scale: 105%;
   transition: all 0.3s;
 }
 
-input:focus{
-  border:0;
+input:focus {
+  border: 0;
+  background-color: #EAEAEA;
   transition: all 0.3s;
 }
+
 
 button[type="submit"] {
   background-color: black;
@@ -112,4 +156,32 @@ button[type="submit"] {
   color: white;
   border-radius: 10px;
   padding: 10px;
+  transition: all 0.3s;
+}
+
+button[type="submit"]:hover {
+  scale: 103%;
+  transition: all 0.3s;
+}
+
+button[type="submit"]:active {
+  scale: 100%;
+  transition: all 0.3s;
+}
+
+@media screen and (max-width:700px) {
+  .container{
+    flex-direction: column;
+      /* width: auto;
+      height: 100vh; */
+  }
+  #left-container,#right-container{
+    width: auto;
+    height: auto;
+  }
+  #right-container{
+    align-items: start;
+    padding: 5rem 10px 0px 10px;
+    height: 90svh;
+  }
 }

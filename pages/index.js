@@ -1,11 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '@/styles/Home.module.css'
 import { Montserrat } from 'next/font/google'
 const inter = Montserrat({ subsets: ['latin'] })
 import {FcGoogle} from 'react-icons/fc'
 import {AiFillApple} from 'react-icons/ai'
-
+import './styles/globals.css'
 export default function Home() {
   return (
     <>
@@ -18,7 +17,7 @@ export default function Home() {
     <div className='container'>
 
       <div id='left-container'>
-        <h1 id='heading'>Board.</h1>
+        <h1 className='heading'>Board.</h1>
       </div>
 
       <div id='right-container'>
@@ -49,7 +48,7 @@ export default function Home() {
 
           </div>
 
-          <div style={{color:"#858585", fontFamily:"Lato", padding:"10px", display:"flex", justifyContent:"center"}}><span>Don't have an account?</span> <a>Register here</a></div>
+          <div style={{color:"#858585", fontFamily:"Lato", padding:"10px", display:"flex", justifyContent:"center", marginTop:"10px"}}><span>Don't have an account?</span> <a>Register here</a></div>
 
         </div>
         </div>
