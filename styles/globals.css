@@ -1,16 +1,115 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@700&display=swap');
 
 * {
   font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  border: 0;
+}
 
+h2 {
+  font-weight: 700;
+  font-size: 2.25rem;
+}
+
+span {
+  font-family: 'Lato';
+}
+
+a {
+  color: #346BD4;
+  font-family: 'Lato', 'sans-serif'
+}
+
+.container {
+  display: flex;
 }
 
 #heading {
-  position: absolute;
+  font-size: 4rem;
+  color: #ffffff;
+}
+
+#left-container {
+  background-color: black;
+  height: 100vh;
+  width: 42vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#right-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F5F5F5;
+  /* background-color: black; */
+  width: 58vw;
+}
+
+#login-top {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.login-form {
+  display: flex;
+  padding: 2rem;
+  border-radius: 10px;
+  gap: 10px;
+  flex-direction: column;
+  background-color: white;
+}
+
+.login-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+label {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+}
+
+.login-buttons button {
+  text-align: center;
+  margin: 1.4rem 0px;
   font-family: 'Montserrat';
   font-style: normal;
-  font-weight: 700;
-  font-size: 72px;
-  color: #000;
+  font-weight: 400;
+  color: #858585;
+  background-color: white;
+  border: 0;
+  border-radius: 10px;
+  padding: 0.5rem;
+}
 
+input {
+  background-color: #F5F5F5;
+  padding: 10px;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+
+input:hover{
+  background-color: #EAEAEA;
+  box-shadow: 2px 2px 3px white;
+  transition: all 0.3s;
+}
+
+input:focus{
+  border:0;
+  transition: all 0.3s;
+}
+
+button[type="submit"] {
+  background-color: black;
+  font-weight: 700;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
 }
