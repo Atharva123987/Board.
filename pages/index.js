@@ -4,7 +4,7 @@ import { Montserrat } from 'next/font/google'
 const inter = Montserrat({ subsets: ['latin'] })
 import {FcGoogle} from 'react-icons/fc'
 import {AiFillApple} from 'react-icons/ai'
-import './styles/globals.css'
+
 export default function Home() {
   return (
     <>
