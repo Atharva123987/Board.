@@ -172,8 +172,6 @@ button[type="submit"]:active {
 @media screen and (max-width:700px) {
   .container{
     flex-direction: column;
-      /* width: auto;
-      height: 100vh; */
   }
   #left-container,#right-container{
     width: auto;

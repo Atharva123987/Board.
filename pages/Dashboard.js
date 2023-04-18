@@ -5,7 +5,20 @@ import { BiUserCircle } from 'react-icons/bi';
 import { SlSettings } from 'react-icons/sl';
 import LineChart from '../components/LineChart'
 import PieChart from '../components/PieChart'
+import { useEffect } from 'react';
+import { useRouter } from 'next/router'
+import { useSession, signIn, signOut } from 'next-auth/react'
+
 const dashboard = () => {
+    const {data:session} = useSession();
+    const router = useRouter()
+    
+    useEffect(() => {
+        if (!session) {
+          router.push('/')
+        }
+      }, [session, router])
+
     return (
         <>
             <div className="container" id='dashboard-container' >
@@ -19,6 +32,7 @@ const dashboard = () => {
                         <a><TbCalendarTime /> Schedules</a>
                         <a><BiUserCircle /> Users</a>
                         <a><SlSettings /> Settings</a>
+                        <button onClick={signOut}><SlSettings /> Log Out</button>
                     </div>
 
                     <div id='sidebar-footer'>
