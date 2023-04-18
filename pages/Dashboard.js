@@ -5,7 +5,7 @@ import { BiUserCircle } from 'react-icons/bi';
 import { SlSettings } from 'react-icons/sl';
 import LineChart from '../components/LineChart'
 import PieChart from '../components/PieChart'
-const Dashboard = () => {
+const dashboard = () => {
     return (
         <>
             <div className="container" id='dashboard-container' >
@@ -55,4 +55,4 @@ const Dashboard = () => {
         </>
     )
 }
-export default Dashboard;
+export default dashboard;
