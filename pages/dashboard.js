@@ -55,10 +55,8 @@ const dashboard = () => {
 
             setData(series);
             setData2(series2);
-            setData1(response1);
-            console.log("DATA1", data);
-            console.log("DATA2", data2);
-
+            setData1(response1.data);
+           
             // Redirect to the dashboard after fetching data
             router.push("/dashboard");
         } catch (err) {

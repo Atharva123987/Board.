@@ -275,6 +275,7 @@ select:focus {
     #grid-container{
         display: flex;
         flex-direction: column;
+        
     }
     #dashboard-container{
        flex-direction: column;
@@ -288,12 +289,15 @@ select:focus {
 
     #sidebar{
         width: auto;
-        justify-content:flex-start;
-        align-items: flex-start;
+        align-items: center;
     }
     #sidebar-links{
         flex-direction: row;
     }
+    #sidebar-footer{
+        flex-direction: row;
+    }
+
     
 }
 
@@ -340,11 +344,7 @@ select:focus {
 
     #sidebar-links {
         display: none;
-        /* flex-direction: row;
-        max-width: 100vw;
-        overflow: hidden;
-        gap: 1rem;
-        margin: 0; */
+       
     }
 
     #sidebar-links a {
