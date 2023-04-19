@@ -6,20 +6,35 @@ import { FcGoogle } from 'react-icons/fc'
 import { AiFillApple } from 'react-icons/ai'
 import { useSession, signIn, signOut } from 'next-auth/react'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Home() {
   const { data: session } = useSession();
   const router = useRouter()
+  const [flag, setFlag] = useState(false);
 
-
-  useEffect(() => {
-    if (session) {
-      router.push('/dashboard')
+  useEffect(()=>{
+    if(session){
+      setFlag(true);
     }
-  }, [session, router])
+  },[session])
 
-  useEffect(() => console.log(session), [session])
+  useEffect(()=>{
+    if(flag)router.push('/dashboard')
+  },[flag])
+
+  const handleLogin = async(e)=>{
+    try{
+      const response = await signIn(e)
+      console.log(response)
+
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
+
+  // useEffect(() => console.log(session), [session])
   return (
     <>
       <Head>
@@ -29,7 +44,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {
-        !session && (
+        
           <div className='container'>
 
 
@@ -49,8 +64,8 @@ export default function Home() {
                 <div>
 
                   <div className='login-buttons'>
-                    <button onClick={signIn}><FcGoogle />Sign in with Google</button>
-                    <button><AiFillApple />Sign in with Apple</button>
+                    <button onClick={()=>handleLogin('google')}><FcGoogle />Sign in with Google</button>
+                    <button onClick={()=>handleLogin('apple')}><AiFillApple />Sign in with Apple</button>
                   </div>
 
                   <div className='login-form'>
@@ -72,7 +87,7 @@ export default function Home() {
             </div>
 
           </div>
-        )
+        
       }
 
     </>

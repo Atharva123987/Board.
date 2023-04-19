@@ -5,19 +5,27 @@ import { BiUserCircle } from 'react-icons/bi';
 import { SlSettings } from 'react-icons/sl';
 import LineChart from '../components/LineChart'
 import PieChart from '../components/PieChart'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router'
 import { useSession, signIn, signOut } from 'next-auth/react'
+import {CgLogOut} from 'react-icons/cg'
+import SvgLogo from '../components/SvgLogo'
 
 const dashboard = () => {
-    const {data:session} = useSession();
+    const { data: session } = useSession();
     const router = useRouter()
-    
+    const [flag, setFlag] = useState(false);
+
     useEffect(() => {
         if (!session) {
-          router.push('/')
+            setFlag(true)
         }
-      }, [session, router])
+    }, [session])
+
+    useEffect(() => {
+        if (flag) router.push('/')
+    }, [flag])
+
 
     return (
         <>
@@ -32,7 +40,7 @@ const dashboard = () => {
                         <a><TbCalendarTime /> Schedules</a>
                         <a><BiUserCircle /> Users</a>
                         <a><SlSettings /> Settings</a>
-                        <button onClick={signOut}><SlSettings /> Log Out</button>
+                        <button onClick={signOut}><CgLogOut /> Log Out</button>
                     </div>
 
                     <div id='sidebar-footer'>
@@ -47,19 +55,46 @@ const dashboard = () => {
                     <div id="navbar">
                         <h1>Dashboard </h1>
                     </div>
+
                     <div id='grid-container'>
-                    <div id="cards">
-                        Cards
-                    </div>
 
-                    <div>
-                        <LineChart />
-                    </div>
+                        <div className='top-cards'>
+                            <div>
+                            <p>Total revenues</p>
+                            <h3>$2,319,309</h3>
+                            </div>
+                            <img src={SvgLogo[0].svg}/>
+                        </div>
+                        <div className='top-cards'>
+                            <div>
+                            <p>Total revenues</p>
+                            <h3>$2,319,309</h3>
+                            </div>
+                            <BiUserCircle />
+                        </div>
+                        <div className='top-cards'>
+                            <div>
+                            <p>Total revenues</p>
+                            <h3>$2,319,309</h3>
+                            </div>
+                            <BiUserCircle />
+                        </div>
+                        <div className='top-cards'>
+                            <div>
+                            <p>Total revenues</p>
+                            <h3>$2,319,309</h3>
+                            </div>
+                            <BiUserCircle />
+                        </div>
 
-                    <div>
-                        <PieChart /> + Dash Card
-                        <card></card>
-                    </div>
+
+
+
+                        <div className='grid-span-4' id='line-chart'>Line chart</div>
+
+                        <div className='grid-span-2' id='pie-chart'>Pie Chart</div>
+                        <div className='grid-span-2' id='schedule-card'>Card</div>
+
                     </div>
 
                 </div>
