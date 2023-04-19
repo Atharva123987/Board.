@@ -22,13 +22,13 @@ const dashboard = () => {
     const[data2, setData2] = useState(null);
     const options = ['May - June 2021', 'July - August 2021', 'September - October 2021'];
 
-    useEffect(() => {
+    // useEffect(() => {
         
-          if (session) {
-            
-        };
+    //       if (session) {
+    //         console.log(session)
+    //     };
         
-    }, [session, router]);
+    // }, [session, router]);
 
     useEffect(()=>{
 
