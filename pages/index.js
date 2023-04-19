@@ -14,7 +14,7 @@ export default function Home() {
   const [flag, setFlag] = useState(false);
 
 
-  
+
 
   const handleLogin = async (provider) => {
     try {
@@ -25,7 +25,7 @@ export default function Home() {
   };
   
 
-  // useEffect(() => console.log(session), [session])
+  useEffect(() => console.log(session), [session])
   return (
     <>
       <Head>
