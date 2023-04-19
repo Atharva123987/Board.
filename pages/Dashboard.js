@@ -19,55 +19,54 @@ const dashboard = () => {
     const router = useRouter()
     const [flag, setFlag] = useState(false);
     const [data, setData] = useState(null);
-    const[data2, setData2] = useState(null);
+    const [data2, setData2] = useState(null);
     const options = ['May - June 2021', 'July - August 2021', 'September - October 2021'];
 
-   
 
-    useEffect(()=>{
+
+    useEffect(() => {
         console.log("DASHBOARD MOUNTED")
         fetchData();
-    },[])
-    
-      const fetchData = async () => {
+    }, [])
+
+    const fetchData = async () => {
         try {
-          const response = await axios.get(
-            `https://api.twelvedata.com/time_series?symbol=AMZN&interval=1week&apikey=${process.env.NEXT_PUBLIC_TWELVE_API_KEY}`
-          );
-          console.log(response)
-          const series = response?.data?.values?.map((value) => ({
-            name: value.datetime,
-            "Close Price": value.close,
-          }));
+            const response = await axios.get(
+                `https://api.twelvedata.com/time_series?symbol=AMZN&interval=1week&apikey=${process.env.NEXT_PUBLIC_TWELVE_API_KEY}`
+            );
+            console.log(response)
+            const series = response?.data?.values?.map((value) => ({
+                name: value.datetime,
+                "Close Price": value.close,
+            }));
 
-          const response2 = await axios.get(
-            `https://api.twelvedata.com/time_series?symbol=AAPL&interval=1week&apikey=${process.env.NEXT_PUBLIC_TWELVE_API_KEY}`
-          );
+            const response2 = await axios.get(
+                `https://api.twelvedata.com/time_series?symbol=AAPL&interval=1week&apikey=${process.env.NEXT_PUBLIC_TWELVE_API_KEY}`
+            );
 
-          const series2 = response2?.data?.values?.map((value) => ({
-            name: value.datetime,
-            "Close Price": value.close,
-          }));
+            const series2 = response2?.data?.values?.map((value) => ({
+                name: value.datetime,
+                "Close Price": value.close,
+            }));
 
-          setData(series);
-          setData2(series2);
-          console.log("DATA1", data);
-          console.log("DATA2", data2);
+            setData(series);
+            setData2(series2);
+            console.log("DATA1", data);
+            console.log("DATA2", data2);
 
-          // Redirect to the dashboard after fetching data
-          router.push("/dashboard");
+            // Redirect to the dashboard after fetching data
+            router.push("/dashboard");
         } catch (err) {
-          console.log(err);
+            console.log(err);
         }
-      }
+    }
 
-      const handleSignOut = () => {
-        signOut({ callbackUrl: "/"}); // Redirect to the home page after signing out
-      };
+    const handleSignOut = () => {
+        signOut({ callbackUrl: "/" }); // Redirect to the home page after signing out
+    };
 
-    
 
-    if(session){
+
     return (
         <>
             <div className="container" id='dashboard-container' >
@@ -101,7 +100,7 @@ const dashboard = () => {
                             <BiBell />
                             <img id='profile-image' src='https://xsgames.co/randomusers/avatar.php?g=male' alt='profile-image' />
 
-                            
+
                         </div>
                     </div>
 
@@ -112,7 +111,7 @@ const dashboard = () => {
                                 <p>Total revenues</p>
                                 <h3>$2,129,430</h3>
                             </div>
-                            <UilMoneyWithdraw/>
+                            <UilMoneyWithdraw />
                         </div>
                         <div className='top-cards'>
                             <div>
@@ -141,7 +140,7 @@ const dashboard = () => {
 
                         <div className='grid-span-4' id='line-chart'>
                             <div>
-                            <h3>Activities</h3>
+                                <h3>Activities</h3>
                                 <select>
                                     {options.map((option, index) => (
                                         <option key={index} value={option}>
@@ -150,13 +149,13 @@ const dashboard = () => {
                                     ))}
                                 </select>
                             </div>
-                            <LChart data={data} data2={data2}/>
+                            <LChart data={data} data2={data2} />
                         </div>
 
                         <div className='grid-span-2 schedule-card' id='pie-chart'>
                             <div className='schedule-top'>
-                            <h3>Top products</h3>
-                            <select>
+                                <h3>Top products</h3>
+                                <select>
                                     {options.map((option, index) => (
                                         <option key={index} value={option}>
                                             {option}
@@ -164,16 +163,16 @@ const dashboard = () => {
                                     ))}
                                 </select>
                             </div>
-                                    <PChart />
+                            <PChart />
 
-                            </div>
+                        </div>
 
                         <div className='grid-span-2 schedule-card'>
                             <div className='schedule-top'>
-                            <h3>Today's Schedule</h3>
-                            <p>See all<BiChevronRight/></p>
+                                <h3>Today's Schedule</h3>
+                                <p>See all<BiChevronRight /></p>
                             </div>
-                            
+
                             <div id='schedule-1'>
                                 <h5>Meeting with suppliers from Kuta Bali</h5>
                                 <p>14.00-15.00</p>
@@ -195,6 +194,5 @@ const dashboard = () => {
             </div>
         </>
     )
-                                    }
 }
 export default dashboard;

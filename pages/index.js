@@ -17,14 +17,11 @@ export default function Home() {
 
 
   const handleLogin = async (provider) => {
-    
-    signIn(provider).then(()=>{
-      router.push('/dashboard')
-    }).catch((err)=>{{
-      console.log(err)
-    }})
-    
-    
+    try {
+      await signIn(provider, { callbackUrl: `${window.location.origin}/dashboard` });
+    } catch (err) {
+      console.log(err);
+    }
   };
   
 
