@@ -40,6 +40,7 @@ const dashboard = () => {
           const response = await axios.get(
             `https://api.twelvedata.com/time_series?symbol=AMZN&interval=1week&apikey=${process.env.NEXT_PUBLIC_TWELVE_API_KEY}`
           );
+          console.log(response)
           const series = response?.data?.values?.map((value) => ({
             name: value.datetime,
             "Close Price": value.close,
