@@ -8,16 +8,21 @@ h3 {
     font-family: 'Open Sans', sans-serif;
     font-style: bold;
     font-weight: 700;
+    font-size: 1.6rem;
+    
 }
 
 #dashboard-container {
     /* align-items: center; */
     min-height: 100vh;
     background-color: #F5F5F5;
-    padding: 1rem;
+    padding: 2rem;
 }
 
-
+#dash-inner-container{
+    padding: 2rem;
+    display: flex;
+}
 #sidebar {
     background-color: black;
     color: white;
@@ -29,7 +34,7 @@ h3 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 10vw;
+    width: 14vw;
     border-radius: 25px;
     padding: 2rem;
     margin: 0 1rem 0 0;
@@ -111,7 +116,6 @@ h3 {
 
 #dashboard {
     /* max-width: 80vw; */
-    width: 100%;
 }
 
 #navbar{
@@ -155,7 +159,8 @@ h3 {
 #grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap:1rem;
+    gap:3rem;
+    margin:0 1rem;
 }
 
 .grid-span-4 {
@@ -169,7 +174,7 @@ h3 {
 .top-cards {
     /* background-color: greenyellow; */
     display: flex;
-    padding: 1rem;
+    padding: 1.2rem 1rem;
     border-radius: 20px;
     justify-content: space-between;
 }
@@ -191,13 +196,19 @@ h3 {
     margin: 1.5rem 1.5rem 1rem 1rem;
 }
 
+.top-cards svg{
+    height: 20px;
+    width: 20px;
+}
+
+
 
 #line-chart {
     background-color: white;
     text-align: left;
     grid-row-start: 2;
     grid-row-end: 4;
-    max-height:30vh;
+    max-height:25vh;
     border-radius: 20px;
     padding: 2rem 3rem 4rem 3rem;
 }
@@ -218,18 +229,22 @@ select:focus {
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
   }
 
-.recharts-surface{
+
+.top-cards svg{
+
 }
 
 #pie-chart {
     background-color: white;
     border-radius: 20px;
-    /* height: 100px; */
+    height: 15rem;
     /* min-height: 15rem; */
-    /* max-height: 20rem; */
+    max-height: 25rem;
+
+    
 }
 
-#schedule-card{
+.schedule-card{
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -237,11 +252,11 @@ select:focus {
     gap:20px;
     border-radius: 20px;
 }
-#schedule-top{
+.schedule-top{
     display: flex;
     justify-content: space-between;
 }
-#schedule-card div p{
+.schedule-card div p{
     color:#858585;
 }
 
@@ -252,6 +267,33 @@ select:focus {
 #schedule-2{
     border-left: 7px solid #6972C3;
     padding-left: 10px;
+}
+
+@media screen and (max-width:1130px) {
+    #grid-container{
+        display: flex;
+        flex-direction: column;
+    }
+    #dashboard-container{
+       flex-direction: column;
+
+    }
+
+    .grid-span-2{
+        grid-row-start: none;
+        grid-row-end: none;
+
+    }
+
+    #sidebar{
+        width: auto;
+        justify-content:flex-start;
+        align-items: flex-start;
+    }
+    #sidebar-links{
+        flex-direction: row;
+    }
+    
 }
 
 @media screen and (max-width:700px) {
@@ -291,5 +333,8 @@ select:focus {
         display: none;
 
     }
+    
+
+
 
 }

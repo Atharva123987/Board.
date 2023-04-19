@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@iconscout/react-unicons": "^2.0.2",
     "axios": "^1.3.5",
     "next": "13.3.0",
     "next-auth": "^4.22.0",

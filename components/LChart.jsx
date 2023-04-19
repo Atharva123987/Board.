@@ -23,8 +23,9 @@ const Chart = ({ data, data2 }) => {
 
           <Tooltip />
           <Legend align="right" verticalAlign="top" />
-          <Line type="monotone" dataKey="Amazon" stroke="#8884d8" />
-          <Line type="monotone" dataKey="Apple" stroke="#82ca9d" />
+          <Line type="monotone" dataKey="Amazon" stroke="#8884d8" dot={false} />
+<Line type="monotone" dataKey="Apple" stroke="#82ca9d" dot={false} />
+
 
         </LineChart>
       </ResponsiveContainer>

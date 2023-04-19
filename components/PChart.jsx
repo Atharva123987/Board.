@@ -7,7 +7,7 @@ const data = [
   { name: 'Super Hoodies', value: 300 },
 ];
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28'];
+const COLORS = ['#98D89E', '#EE8484', '#F6DC7D'];
 
 const PChart = () => {
 
@@ -27,13 +27,15 @@ const PChart = () => {
             {data.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
             ))}
+          <p>Hello</p>
           </Pie>
-          {/* <Legend 
+          <Legend 
             align="right" 
             verticalAlign="middle" 
             layout="vertical" 
-          /> */}
+          />
         </PieChart>
+
       </ResponsiveContainer>
     </div>
   );
