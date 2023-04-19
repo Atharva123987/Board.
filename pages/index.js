@@ -10,8 +10,6 @@ import { useEffect, useState } from 'react'
 
 export default function Home() {
   const { data: session } = useSession();
-  const router = useRouter()
-  const [flag, setFlag] = useState(false);
 
 
 
@@ -25,7 +23,7 @@ export default function Home() {
   };
   
 
-  useEffect(() => console.log(session), [session])
+
   return (
     <>
       <Head>
