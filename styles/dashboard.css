@@ -303,6 +303,10 @@ select:focus {
         min-width: 100vw;
 
     }
+
+    #right-container{
+        padding:1.5rem;
+    }
     
     #navbar{
         justify-content: flex-start;
