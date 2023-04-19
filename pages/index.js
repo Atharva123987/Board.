@@ -13,15 +13,8 @@ export default function Home() {
   const router = useRouter()
   const [flag, setFlag] = useState(false);
 
-  useEffect(()=>{
-    if(session){
-      setFlag(true);
-    }
-  },[session])
 
-  useEffect(()=>{
-    if(flag)router.push('/dashboard')
-  },[flag])
+  
 
   const handleLogin = async (provider) => {
     try {
