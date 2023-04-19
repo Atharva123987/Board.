@@ -23,16 +23,14 @@ export default function Home() {
     if(flag)router.push('/dashboard')
   },[flag])
 
-  const handleLogin = async(e)=>{
-    try{
-      const response = await signIn(e)
-      console.log(response)
-
+  const handleLogin = async (provider) => {
+    try {
+      await signIn(provider, { callbackUrl: `${window.location.origin}/dashboard` });
+    } catch (err) {
+      console.log(err);
     }
-    catch(err){
-      console.log(err)
-    }
-  }
+  };
+  
 
   // useEffect(() => console.log(session), [session])
   return (

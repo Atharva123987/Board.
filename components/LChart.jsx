@@ -5,18 +5,20 @@ const Chart = ({ data, data2 }) => {
 
   const chartData = data?.map((item, index) => {
     return {
-      name: `Week ${item.name}`,
+      week: index + 1,
       Amazon: parseFloat(item['Close Price']),
       Apple: data2 && index < data2.length ? parseFloat(data2[index]['Close Price']) : null,
     };
   });
 
+  const formatXAxis = (tickItem) => `Week ${tickItem}`;
+
   return (
     <div style={{ width: '100%', height: '100%' }}>
       <ResponsiveContainer width="95%" height="100%">
         <LineChart data={chartData}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
+          <CartesianGrid strokeDasharray="3 3" vertical={false} />
+          <XAxis dataKey="week" tickFormatter={formatXAxis} />
           <YAxis type="number" domain={[0, 200]} label={{ value: '0-200', angle: -90, position: 'insideLeft' }} />
 
           <Tooltip />

@@ -14,7 +14,7 @@ h3 {
     /* align-items: center; */
     min-height: 100vh;
     background-color: #F5F5F5;
-    padding: 10px;
+    padding: 1rem;
 }
 
 
@@ -55,8 +55,24 @@ h3 {
     transition: all 0.3s;
 }
 
-#sidebar-links a:last-child:hover {
-    color: red;
+#sidebar-footer button {
+    border-radius: 10px;
+    padding:0.5rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+#sidebar-footer button:hover{
+    scale:103%;
+    transition: all 0.3s;
+}
+
+#sidebar-footer button:active{
+    scale:100%;
+    transition: all 0.3s;
 }
 
 #sidebar-footer a {
@@ -75,8 +91,8 @@ h3 {
     transition: all 0.3s;
 }
 
-#sidebar-linsk a>svg:hover {
-    color: red;
+#sidebar-links a {
+    align-items: center;
 }
 
 #sidebar-footer {
@@ -94,7 +110,8 @@ h3 {
 }
 
 #dashboard {
-    max-width: 80vw;
+    /* max-width: 80vw; */
+    width: 100%;
 }
 
 #navbar{
@@ -131,14 +148,14 @@ h3 {
 }
 
 #profile-image{
-    width: 1.5rem;
+    width: 1.7rem;
     border-radius: 50%;
 }
 
 #grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap:2.5rem;
+    gap:1rem;
 }
 
 .grid-span-4 {
@@ -176,26 +193,65 @@ h3 {
 
 
 #line-chart {
-    border: 2px solid red;
-    text-align: center;
+    background-color: white;
+    text-align: left;
     grid-row-start: 2;
     grid-row-end: 4;
-    min-height:15rem;
-    max-height: 20rem;
-    padding: 3rem;
+    max-height:30vh;
+    border-radius: 20px;
+    padding: 2rem 3rem 4rem 3rem;
 }
 
-#line-chart h3{
-    text-align: left;
+select{
+    background-color: white;
+    color:#858585;
+    outline: none;
+    padding: 5px;
+    margin-top: 4px;
+    cursor: pointer;   
 }
+
+select:focus {
+    outline: none;
+    border-radius: 10px;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
 
 .recharts-surface{
 }
 
 #pie-chart {
-    border: 2px solid green;
-    min-height: 15rem;
-    max-height: 20rem;
+    background-color: white;
+    border-radius: 20px;
+    /* height: 100px; */
+    /* min-height: 15rem; */
+    /* max-height: 20rem; */
+}
+
+#schedule-card{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap:20px;
+    border-radius: 20px;
+}
+#schedule-top{
+    display: flex;
+    justify-content: space-between;
+}
+#schedule-card div p{
+    color:#858585;
+}
+
+#schedule-1{
+    border-left: 7px solid #9BDD7C;
+    padding-left: 10px;
+}
+#schedule-2{
+    border-left: 7px solid #6972C3;
+    padding-left: 10px;
 }
 
 @media screen and (max-width:700px) {

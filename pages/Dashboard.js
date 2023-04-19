@@ -1,7 +1,7 @@
-import { AiOutlinePieChart, AiOutlineSearch } from 'react-icons/ai';
+import { AiOutlineLike, AiOutlinePieChart, AiOutlineSearch } from 'react-icons/ai';
 import { BsTags } from 'react-icons/bs';
 import { TbCalendarTime } from 'react-icons/tb';
-import { BiBell, BiUserCircle } from 'react-icons/bi';
+import { BiBell, BiChevronRight, BiUserCircle } from 'react-icons/bi';
 import { SlSettings } from 'react-icons/sl';
 import LineChart from '../components/LChart'
 import PieChart from '../components/PChart'
@@ -21,39 +21,56 @@ const dashboard = () => {
     const options = ['May - June 2021', 'July - August 2021', 'September - October 2021'];
 
     useEffect(() => {
-        if (!session) {
-            setFlag(true)
-        }
-        fetchData();
         
-    }, [])
+          if (session) {
+            
+        };
+        
+    }, [session, router]);
 
-  
+    useEffect(()=>{
+
+        fetchData();
+    },[])
     
-    // useEffect(() => {
-    //     if (flag) router.push('/')
-    // }, [flag])
+      const fetchData = async () => {
+        try {
+          const response = await axios.get(
+            `https://api.twelvedata.com/time_series?symbol=AMZN&interval=1week&apikey=${process.env.NEXT_PUBLIC_TWELVE_API_KEY}`
+          );
+          const series = response?.data?.values?.map((value) => ({
+            name: value.datetime,
+            "Close Price": value.close,
+          }));
 
-    const fetchData = async () => {
-        try{
-        const response = await axios.get(`https://api.twelvedata.com/time_series?symbol=AMZN&interval=1week&apikey=${process.env.NEXT_PUBLIC_TWELVE_API_KEY}`);
-        const series = response?.data?.values?.map((value) => ({ name: value.datetime, 'Close Price': value.close }));
+          const response2 = await axios.get(
+            `https://api.twelvedata.com/time_series?symbol=AAPL&interval=1week&apikey=${process.env.NEXT_PUBLIC_TWELVE_API_KEY}`
+          );
 
-        const response2 = await axios.get(`https://api.twelvedata.com/time_series?symbol=AAPL&interval=1week&apikey=${process.env.NEXT_PUBLIC_TWELVE_API_KEY}`);
+          const series2 = response2?.data?.values?.map((value) => ({
+            name: value.datetime,
+            "Close Price": value.close,
+          }));
 
-        const series2 = response2?.data?.values?.map((value) => ({ name: value.datetime, 'Close Price': value.close }));
+          setData(series);
+          setData2(series2);
+          console.log("DATA1", data);
+          console.log("DATA2", data2);
 
-        setData(series);
-        setData2(series2);
-        console.log("DATA1",data)
-        console.log("DATA2",data2)
+          // Redirect to the dashboard after fetching data
+          router.push("/dashboard");
+        } catch (err) {
+          console.log(err);
         }
-        catch(err){
-            console.log(err)
-        }
-    };
+      }
+      
+      const handleSignOut = () => {
+        signOut({ callbackUrl: "/"}); // Redirect to the home page after signing out
+      };
 
+    
 
+    if(session){
     return (
         <>
             <div className="container" id='dashboard-container' >
@@ -67,10 +84,10 @@ const dashboard = () => {
                         <a><TbCalendarTime /> Schedules</a>
                         <a><BiUserCircle /> Users</a>
                         <a><SlSettings /> Settings</a>
-                        <button onClick={signOut}><CgLogOut /> Log Out</button>
                     </div>
 
                     <div id='sidebar-footer'>
+                        <button onClick={handleSignOut}><CgLogOut /> Log Out</button>
                         <a>Help</a>
                         <a>Contact Us</a>
                     </div>
@@ -86,6 +103,8 @@ const dashboard = () => {
                             <input type='text' placeholder='Search...' />
                             <BiBell />
                             <img id='profile-image' src='https://xsgames.co/randomusers/avatar.php?g=male' alt='profile-image' />
+
+                            
                         </div>
                     </div>
 
@@ -114,9 +133,7 @@ const dashboard = () => {
                                 <p>Total Users</p>
                                 <h3>9,721</h3>
                             </div>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M22.538 12.6334C23.0273 11.9869 23.2981 11.1948 23.2981 10.3706C23.2981 9.06299 22.5671 7.82528 21.3906 7.13507C21.0877 6.95741 20.7428 6.8639 20.3917 6.86423H13.4081L13.5828 3.28506C13.6236 2.42011 13.3178 1.59886 12.7237 0.972718C12.4321 0.6641 12.0804 0.418552 11.6902 0.251249C11.3 0.0839457 10.8796 -0.0015581 10.455 2.1493e-05C8.94066 2.1493e-05 7.60101 1.01931 7.19912 2.47836L4.69748 11.5355H0.931925C0.416454 11.5355 0 11.952 0 12.4674V23.0681C0 23.5835 0.416454 24 0.931925 24H18.4434C18.7113 24 18.9734 23.9476 19.2151 23.8427C20.6014 23.2515 21.4954 21.8973 21.4954 20.3946C21.4954 20.0277 21.443 19.6665 21.3382 19.3171C21.8274 18.6706 22.0983 17.8784 22.0983 17.0542C22.0983 16.6873 22.0459 16.3262 21.941 15.9767C22.4303 15.3302 22.7011 14.5381 22.7011 13.7139C22.6953 13.3469 22.6429 12.9829 22.538 12.6334ZM2.09683 21.9032V13.6323H4.45577V21.9032H2.09683ZM20.6305 11.6229L19.9927 12.1762L20.3975 12.9159C20.5309 13.1596 20.6 13.4332 20.5985 13.711C20.5985 14.1915 20.3888 14.6487 20.0277 14.9632L19.3899 15.5166L19.7947 16.2563C19.928 16.5 19.9972 16.7736 19.9956 17.0513C19.9956 17.5319 19.7859 17.9891 19.4248 18.3036L18.787 18.8569L19.1918 19.5967C19.3252 19.8403 19.3943 20.1139 19.3928 20.3917C19.3928 21.0441 19.0084 21.6323 18.4143 21.9003H6.31962V13.5391L9.21732 3.04043C9.29204 2.77133 9.45244 2.53393 9.67421 2.36419C9.89598 2.19445 10.167 2.10162 10.4463 2.09976C10.6676 2.09976 10.886 2.16383 11.0608 2.29489C11.3491 2.51039 11.5034 2.83657 11.486 3.18313L11.2064 8.96106H20.3626C20.8809 9.2785 21.2013 9.81436 21.2013 10.3706C21.2013 10.8511 20.9916 11.3054 20.6305 11.6229Z" fill="black" />
-                            </svg>
+                            <AiOutlineLike/>
                         </div>
                         <div className='top-cards'>
                             <div>
@@ -132,8 +149,8 @@ const dashboard = () => {
 
 
                         <div className='grid-span-4' id='line-chart'>
-                            <h3>Activities</h3>
                             <div>
+                            <h3>Activities</h3>
                                 <select>
                                     {options.map((option, index) => (
                                         <option key={index} value={option}>
@@ -145,8 +162,28 @@ const dashboard = () => {
                             <LChart data={data} data2={data2}/>
                         </div>
 
-                        <div className='grid-span-2' id='pie-chart'><PChart /></div>
-                        <div className='grid-span-2' id='schedule-card'>Card</div>
+                        <div className='grid-span-2' id='pie-chart'>
+                            <PChart />
+                            
+                            </div>
+                        <div className='grid-span-2' id='schedule-card'>
+                            <div id='schedule-top'>
+                            <h3>Today's Schedule</h3>
+                            <p>See all<BiChevronRight/></p>
+                            </div>
+                            
+                            <div id='schedule-1'>
+                                <h5>Meeting with suppliers from Kuta Bali</h5>
+                                <p>14.00-15.00</p>
+                                <p>at Sunset Road, Kuta, Bali </p>
+                            </div>
+
+                            <div id='schedule-2'>
+                                <h5>Check operation at Giga Factory 1</h5>
+                                <p>18.00-20.00</p>
+                                <p>at Central Jakarta </p>
+                            </div>
+                        </div>
 
                     </div>
 
@@ -156,5 +193,6 @@ const dashboard = () => {
             </div>
         </>
     )
+                                    }
 }
 export default dashboard;

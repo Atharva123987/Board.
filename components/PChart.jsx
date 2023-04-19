@@ -2,13 +2,12 @@ import React from 'react';
 import { PieChart, Pie, Cell, Legend, ResponsiveContainer } from 'recharts';
 
 const data = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 300 },
-  { name: 'Group C', value: 300 },
-  { name: 'Group D', value: 200 },
+  { name: 'Basic Tree', value: 400 },
+  { name: 'Custom Short Pants', value: 300 },
+  { name: 'Super Hoodies', value: 300 },
 ];
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28'];
 
 const PChart = () => {
 
@@ -29,7 +28,11 @@ const PChart = () => {
               <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
             ))}
           </Pie>
-          <Legend align="right" verticalAlign="top" layout="vertical" />
+          {/* <Legend 
+            align="right" 
+            verticalAlign="middle" 
+            layout="vertical" 
+          /> */}
         </PieChart>
       </ResponsiveContainer>
     </div>
