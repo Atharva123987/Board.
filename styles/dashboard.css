@@ -325,10 +325,11 @@ select:focus {
         width: fit-content;
         max-width: 100vw;
         height: auto;
-        padding: 10px;
+        padding: 20px;
         margin: 0;
-        align-items: start;
-        justify-content: start;
+        align-items: center;
+        justify-content: center;
+        
     }
 
 
@@ -351,15 +352,16 @@ select:focus {
         font-weight: 700;
     }
 
+
     #sidebar-footer a{
         display: none;
 
     }
     #sidebar-footer button{
-        display: block;
-        position: absolute;
-        right: -5%;
-        top:5%;
+        display: flex;
+        background-color: black;
+        color:white;
+        
     }
 
     #line-chart{
