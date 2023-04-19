@@ -115,21 +115,21 @@ const dashboard = () => {
                         </div>
                         <div className='top-cards'>
                             <div>
-                                <p>Total Likes</p>
+                                <p>Total Transactions</p>
                                 <h3>1,520</h3>
                             </div>
                             <BsTags />
                         </div>
                         <div className='top-cards'>
                             <div>
-                                <p>Total Users</p>
+                                <p>Total Likes</p>
                                 <h3>9,721</h3>
                             </div>
                             <AiOutlineLike />
                         </div>
                         <div className='top-cards'>
                             <div>
-                                <p>Total revenues</p>
+                                <p>Total Users</p>
                                 <h3>892</h3>
                             </div>
                             <UilUsersAlt />
