@@ -9,27 +9,26 @@ h3 {
     font-style: bold;
     font-weight: 700;
     font-size: 1.6rem;
-    
+
 }
 
 #dashboard-container {
-    /* align-items: center; */
     min-height: 100vh;
     background-color: #F5F5F5;
     padding: 2rem;
 }
 
-#dash-inner-container{
+#dash-inner-container {
     padding: 2rem;
     display: flex;
 }
+
 #sidebar {
     background-color: black;
     color: white;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 700;
-    /* height: 84vh; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -39,8 +38,6 @@ h3 {
     padding: 2rem;
     margin: 0 1rem 0 0;
 }
-
-
 
 #sidebar-links {
     font-family: 'Montserrat';
@@ -52,7 +49,6 @@ h3 {
     margin: 3vh 0;
 }
 
-
 #sidebar-links a {
     display: flex;
     gap: 10px;
@@ -62,7 +58,7 @@ h3 {
 
 #sidebar-footer button {
     border-radius: 10px;
-    padding:0.5rem;
+    padding: 0.5rem;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -70,13 +66,13 @@ h3 {
     transition: all 0.3s;
 }
 
-#sidebar-footer button:hover{
-    scale:103%;
+#sidebar-footer button:hover {
+    scale: 103%;
     transition: all 0.3s;
 }
 
-#sidebar-footer button:active{
-    scale:100%;
+#sidebar-footer button:active {
+    scale: 100%;
     transition: all 0.3s;
 }
 
@@ -115,44 +111,41 @@ h3 {
 }
 
 #dashboard {
-    /* max-width: 80vw; */
-    flex:1;
+    flex: 1;
 }
 
-#navbar{
+#navbar {
     position: relative;
     display: flex;
     justify-content: space-between;
     margin: 1.5rem 0;
-    
+
 }
 
-#navbar input[type="text"]{
+#navbar input[type="text"] {
     background-color: white;
 }
 
-#navbar-right{
+#navbar-right {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap:10px;
+    gap: 10px;
 }
 
-::placeholder{
-    color:#B0B0B0;
+::placeholder {
+    color: #B0B0B0;
 }
 
-#navbar 
-
-#search-icon{
-    position:absolute;
+#navbar #search-icon {
+    position: absolute;
     z-index: 10;
-    right:7%;
-    bottom:30%;
-    color:#858585;
+    right: 7%;
+    bottom: 30%;
+    color: #858585;
 }
 
-#profile-image{
+#profile-image {
     width: 1.7rem;
     border-radius: 50%;
 }
@@ -160,8 +153,8 @@ h3 {
 #grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap:3rem;
-    margin:0 1rem;
+    gap: 3rem;
+    margin: 0 1rem;
 }
 
 .grid-span-4 {
@@ -173,7 +166,6 @@ h3 {
 }
 
 .top-cards {
-    /* background-color: greenyellow; */
     display: flex;
     padding: 1.2rem 1rem;
     border-radius: 20px;
@@ -181,16 +173,19 @@ h3 {
     min-width: 10rem;
 }
 
-.top-cards:nth-child(1){
+.top-cards:nth-child(1) {
     background-color: #DDEFE0;
 }
-.top-cards:nth-child(2){
+
+.top-cards:nth-child(2) {
     background-color: #F4ECDD;
 }
-.top-cards:nth-child(3){
+
+.top-cards:nth-child(3) {
     background-color: #EFDADA;
 }
-.top-cards:nth-child(4){
+
+.top-cards:nth-child(4) {
     background-color: #DEE0EF;
 }
 
@@ -198,30 +193,28 @@ h3 {
     margin: 1.5rem 1.5rem 1rem 1rem;
 }
 
-.top-cards svg{
+.top-cards svg {
     height: 20px;
     width: 20px;
 }
-
-
 
 #line-chart {
     background-color: white;
     text-align: left;
     grid-row-start: 2;
     grid-row-end: 4;
-    max-height:25vh;
+    max-height: 25vh;
     border-radius: 20px;
     padding: 2rem 3rem 4rem 3rem;
 }
 
-select{
+select {
     background-color: white;
-    color:#858585;
+    color: #858585;
     outline: none;
     padding: 5px;
     margin-top: 4px;
-    cursor: pointer;   
+    cursor: pointer;
 }
 
 select:focus {
@@ -229,103 +222,97 @@ select:focus {
     border-radius: 10px;
     border-color: #007bff;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-  }
-
-
-.top-cards svg{
-
 }
 
 #pie-chart {
     background-color: white;
     border-radius: 20px;
     height: 15rem;
-    /* min-height: 15rem; */
     max-height: 25rem;
-
-    
 }
 
-.schedule-card{
+.schedule-card {
     background-color: white;
     display: flex;
     flex-direction: column;
     padding: 2rem;
-    gap:20px;
+    gap: 20px;
     border-radius: 20px;
 }
-.schedule-top{
+
+.schedule-top {
     display: flex;
     justify-content: space-between;
 }
-.schedule-card div p{
-    color:#858585;
+
+.schedule-card div p {
+    color: #858585;
 }
 
-#schedule-1{
+#schedule-1 {
     border-left: 7px solid #9BDD7C;
     padding-left: 10px;
 }
-#schedule-2{
+
+#schedule-2 {
     border-left: 7px solid #6972C3;
     padding-left: 10px;
 }
 
 @media screen and (max-width:1130px) {
-    #grid-container{
+
+    #grid-container {
         display: flex;
         flex-direction: column;
-        
-    }
-    #dashboard-container{
-       flex-direction: column;
     }
 
-    .grid-span-2{
+    #dashboard-container {
+        flex-direction: column;
+    }
+
+    .grid-span-2 {
         grid-row-start: none;
         grid-row-end: none;
-
     }
 
-    #sidebar{
+    #sidebar {
         width: auto;
         align-items: center;
     }
-    #sidebar-links{
-        flex-direction: row;
-    }
-    #sidebar-footer{
+
+    #sidebar-links {
         flex-direction: row;
     }
 
-    
+    #sidebar-footer {
+        flex-direction: row;
+    }
+
 }
 
 @media screen and (max-width:700px) {
+
     #dashboard-container {
         align-items: center;
         min-width: 100vw;
-
     }
 
-    #right-container{
-        padding:1.5rem;
+    #right-container {
+        padding: 1.5rem;
     }
-    
-    #navbar{
+
+    #navbar {
         justify-content: flex-start;
-        /* flex-direction: column; */
-        gap:10px
+        gap: 10px
     }
-    
 
-    #navbar-right{
-        margin:0;
+    #navbar-right {
+        margin: 0;
         justify-content: flex-start;
     }
 
-    .top-cards{
-        flex-direction: column  ;
+    .top-cards {
+        flex-direction: column;
         max-width: 30rem;
     }
 
@@ -337,14 +324,10 @@ select:focus {
         margin: 0;
         align-items: center;
         justify-content: center;
-        
     }
-
-
 
     #sidebar-links {
         display: none;
-       
     }
 
     #sidebar-links a {
@@ -356,33 +339,29 @@ select:focus {
         font-weight: 700;
     }
 
-
-    #sidebar-footer a{
+    #sidebar-footer a {
         display: none;
-
     }
-    #sidebar-footer button{
+
+    #sidebar-footer button {
         display: flex;
         background-color: black;
-        color:white;
-        
+        color: white;
     }
 
-    #line-chart{
+    #line-chart {
         max-width: 20rem;
         height: 20rem;
     }
-    #pie-chart{
+
+    #pie-chart {
         max-width: 25rem;
         padding: 1rem;
         height: 20rem;
     }
-    
-#search-icon{
-    left: 80%;
-}
-    
-    
 
+    #search-icon {
+        left: 80%;
+    }
 
 }

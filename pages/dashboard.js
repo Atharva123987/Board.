@@ -3,8 +3,6 @@ import { BsTags } from 'react-icons/bs';
 import { TbCalendarTime } from 'react-icons/tb';
 import { BiBell, BiChevronRight, BiUserCircle } from 'react-icons/bi';
 import { SlSettings } from 'react-icons/sl';
-import LineChart from '../components/LChart'
-import PieChart from '../components/PChart'
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router'
 import { useSession, signIn, signOut } from 'next-auth/react'
@@ -49,12 +47,12 @@ const dashboard = () => {
             }));
 
             const response1 = await axios.get(`https://sample-data-listed.onrender.com/`)
-           
+
 
             setData(series);
             setData2(series2);
             setData1(response1.data);
-           
+
             // Redirect to the dashboard after fetching data
             router.push("/dashboard");
         } catch (err) {
@@ -94,15 +92,16 @@ const dashboard = () => {
                 <div id="dashboard">
 
                     <div id="navbar">
+
                         <h1>Dashboard </h1>
+
                         <div id='navbar-right'>
                             <AiOutlineSearch id='search-icon' />
                             <input type='text' placeholder='Search...' />
                             <BiBell />
                             <img id='profile-image' src='https://xsgames.co/randomusers/avatar.php?g=male' alt='profile-image' />
-
-
                         </div>
+
                     </div>
 
                     <div id='grid-container'>
@@ -114,6 +113,7 @@ const dashboard = () => {
                             </div>
                             <UilMoneyWithdraw />
                         </div>
+
                         <div className='top-cards'>
                             <div>
                                 <p>Total Transactions</p>
@@ -121,6 +121,7 @@ const dashboard = () => {
                             </div>
                             <BsTags />
                         </div>
+
                         <div className='top-cards'>
                             <div>
                                 <p>Total Likes</p>
@@ -128,6 +129,7 @@ const dashboard = () => {
                             </div>
                             <AiOutlineLike />
                         </div>
+
                         <div className='top-cards'>
                             <div>
                                 <p>Total Users</p>
@@ -135,8 +137,6 @@ const dashboard = () => {
                             </div>
                             <UilUsersAlt />
                         </div>
-
-
 
 
                         <div className='grid-span-4' id='line-chart'>
@@ -165,10 +165,10 @@ const dashboard = () => {
                                 </select>
                             </div>
                             <PChart data={data1} />
-
                         </div>
 
                         <div className='grid-span-2 schedule-card'>
+
                             <div className='schedule-top'>
                                 <h3>Today's Schedule</h3>
                                 <p>See all<BiChevronRight /></p>
@@ -185,12 +185,12 @@ const dashboard = () => {
                                 <p>18.00-20.00</p>
                                 <p>at Central Jakarta </p>
                             </div>
+
                         </div>
 
                     </div>
 
                 </div>
-
 
             </div>
         </>

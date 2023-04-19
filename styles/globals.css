@@ -121,6 +121,14 @@ label {
   transition: all 0.3s;
 }
 
+#login-form-footer{
+  color: #858585;
+  font-family: Lato;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
 
 
 button>svg {
