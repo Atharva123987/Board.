@@ -351,9 +351,15 @@ select:focus {
         font-weight: 700;
     }
 
-    #sidebar-footer {
+    #sidebar-footer a{
         display: none;
 
+    }
+    #sidebar-footer button{
+        display: block;
+        position: absolute;
+        right: -5%;
+        top:5%;
     }
 
     #line-chart{

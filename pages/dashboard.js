@@ -20,6 +20,7 @@ const dashboard = () => {
     const [flag, setFlag] = useState(false);
     const [data, setData] = useState(null);
     const [data2, setData2] = useState(null);
+    const [data1, setData1] = useState(null);
     const options = ['May - June 2021', 'July - August 2021', 'September - October 2021'];
 
 
@@ -49,8 +50,12 @@ const dashboard = () => {
                 "Close Price": value.close,
             }));
 
+            const response1 = await axios.get(`https://sample-data-listed.onrender.com/`)
+           
+
             setData(series);
             setData2(series2);
+            setData1(response1);
             console.log("DATA1", data);
             console.log("DATA2", data2);
 
@@ -163,7 +168,7 @@ const dashboard = () => {
                                     ))}
                                 </select>
                             </div>
-                            <PChart />
+                            <PChart data={data1} />
 
                         </div>
 
