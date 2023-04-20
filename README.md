@@ -1,4 +1,4 @@
-# Sign In Page with Google Auth and Dashboard with Line and Pie Charts
+# Sign In Page with Google Auth and Dashboard with Line and Pie Charts 📱
 
 This project is a sign in page with Google authentication and a dashboard that displays line and pie chart. The data for the charts is fetched from the Twelve Data API using Axios. The project is built using Next.js and uses NextAuth for authentication. React-icons and React-skeleton-loader are also used as libraries to enhance the UI.
 
