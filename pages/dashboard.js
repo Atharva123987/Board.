@@ -86,7 +86,7 @@ const dashboard = () => {
         signOut({ callbackUrl: "/" }); // Redirect to the home page after signing out
     };
 
-    if (data || !data2 || !data1) {
+    if (!data || !data2 || !data1) {
         return (<>
 
             <div className="container" id='dashboard-container' >
