@@ -54,7 +54,7 @@ const dashboard = () => {
             setData1(response1.data);
 
             // Redirect to the dashboard after fetching data
-            router.push("/dashboard");
+            // router.push("/dashboard");
         } catch (err) {
             console.log(err);
         }

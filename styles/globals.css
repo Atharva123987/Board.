@@ -188,6 +188,6 @@ button[type="submit"]:active {
   #right-container{
     align-items: start;
     padding: 5rem 10px 0px 10px;
-    height: 90svh;
+    height: 100vh!important;
   }
 }

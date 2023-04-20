@@ -275,6 +275,10 @@ select:focus {
         grid-row-end: none;
     }
 
+    #line-chart{
+        max-height: 20rem;
+    }
+
     #sidebar {
         width: auto;
         align-items: center;
@@ -317,9 +321,10 @@ select:focus {
     }
 
     #sidebar {
-        width: fit-content;
+        width: 100%;
         max-width: 100vw;
         height: auto;
+        max-height: 4rem;
         padding: 20px;
         margin: 0;
         align-items: center;
@@ -350,7 +355,7 @@ select:focus {
     }
 
     #line-chart {
-        max-width: 20rem;
+        max-width: 22rem;
         height: 20rem;
     }
 
