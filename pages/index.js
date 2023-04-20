@@ -4,7 +4,6 @@ const inter = Montserrat({ subsets: ['latin'] })
 import { FcGoogle } from 'react-icons/fc'
 import { AiFillApple } from 'react-icons/ai'
 import { signIn } from 'next-auth/react'
-
 export default function Home() {
 
   const handleLogin = async (provider) => {
@@ -14,6 +13,8 @@ export default function Home() {
       console.log(err);
     }
   };
+
+
 
   return (
     <>

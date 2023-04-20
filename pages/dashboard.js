@@ -14,6 +14,26 @@ import PChart from '../components/PChart';
 import axios from 'axios'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
+import { getSession } from 'next-auth/react';
+
+
+export async function getServerSideProps(context) {
+    const session = await getSession(context);
+  
+    if (!session) {
+      return {
+        redirect: {
+          destination: '/',
+          permanent: false,
+        },
+      };
+    }
+  
+    return {
+      props: {},
+    };
+  }
+
 const dashboard = () => {
     const { data: session } = useSession();
     const router = useRouter()
@@ -66,7 +86,7 @@ const dashboard = () => {
         signOut({ callbackUrl: "/" }); // Redirect to the home page after signing out
     };
 
-    if (!data || !data2 || !data1) {
+    if (data || !data2 || !data1) {
         return (<>
 
             <div className="container" id='dashboard-container' >
@@ -151,9 +171,11 @@ const dashboard = () => {
                                     ))}
                                 </select>
                             </div>
-                            <Skeleton count={1} width={1000} />
-                            <Skeleton count={1} height={100} width={1000} highlightColor="#D3D3D3" />
-                            <Skeleton count={1} width={1000} />
+                            <div style={{display:"flex", flexDirection:"column", gap:"10px", alignItems:"space-evenly", height:"100%", overflow:"hidden"}}>
+                            <Skeleton count={1} />
+                            <Skeleton count={1} height={100} highlightColor="#D3D3D3" />
+                            <Skeleton count={1} />
+                            </div>
                         </div>
 
                         <div className='grid-span-2 schedule-card' id='pie-chart'>
@@ -167,12 +189,12 @@ const dashboard = () => {
                                     ))}
                                 </select>
                             </div>
-                            <div style={{display:"flex", justifyContent:"space-between"}}>
+                            <div style={{display:"flex", alignItems:"center", gap:"3rem"}}>
                             <Skeleton count={1} width={150} height={150} highlightColor="#D3D3D3" style={{ borderRadius: "50%", marginLeft: "4rem", marginTop: "1rem" }} />
-                            <div>
-                            <Skeleton count={1} width={100} style={{marginTop:"4rem", marginRight:"4rem"}}/>
-                            <Skeleton count={1} width={100} style={{marginTop:"0.5rem", marginRight:"4rem"}}/>
-                            <Skeleton count={1} width={100} style={{marginTop:"0.5rem", marginRight:"4rem"}}/>
+                            <div style={{height:"100%"}}> 
+                            <Skeleton count={1} style={{marginTop:"4rem", marginRight:"4rem"}}/>
+                            <Skeleton count={1} style={{marginTop:"0.5rem", marginRight:"4rem"}}/>
+                            <Skeleton count={1}  style={{marginTop:"0.5rem", marginRight:"4rem"}}/>
                             </div>
                             </div>
                         </div>
